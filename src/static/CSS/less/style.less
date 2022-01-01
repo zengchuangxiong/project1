@@ -1,0 +1,323 @@
+/* less变量 */
+@pageWidth:1000px;      /* 设置页面内容的宽度为变量 */
+@fontColor:#f40;     /* 设置文本的主要颜色为变量 */
+*{
+    font-family:  "宋体","Microsoft YaHei",sans-serif,Arial;  /* 设置字体 */
+}
+.clearfix::before,.clearfix::after{  /* 清除浮动 */
+    content:"";
+    display:table;
+    clear:both;
+}  
+/* ---------------------------------------------------------------- */
+/* 顶部导航区域 */
+nav{
+    width: @pageWidth;
+    background: #f5f5f5;
+    margin:0 auto;
+    font-size:12px;
+    >#navBox{  /* 顶部导航栏 */
+        height: 30px;
+
+        /* 顶部导航区域左侧 */
+        >.left{  /* 导航栏左侧 */
+            height:100%;
+            float:left;     /* 左浮动，使盒子位于左侧 */
+
+            >ul{   
+                height:100%;
+                display:flex;   
+                align-items:center;
+                >li{   
+                    height:100%;
+                    display:flex;   
+                    align-items:center;
+                    >.vertical-line{    /* li的竖线 */
+                        position:absolute;
+                        left:-4px;
+                        font-size: 10px;
+                        color:#777;
+                    }
+                    >a{    /* li的a标签 */
+                        padding:0 7px;
+                        color:#666;
+                        cursor: pointer;
+                        >span,>i{  /* a标签中的文本和icon图标 */
+                            /* 设置垂直居中对齐 */
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    }
+                    >a:hover{  /* 当划上用于li的a标签（包含icon图标）后文本变色 */
+                        color:@fontColor;
+                        >span:hover{  /* 当划上用于li的a标签（不含icon图标）的文本后文本添加下划线 */
+                            text-decoration: underline;
+                        }
+                    }
+                    >.alone-color{  /* 给用于登录的a标签设置单独的字体颜色 */
+                        color:@fontColor;
+                    }
+                } 
+                >.arrowNav_li{  /* 带箭头的li盒子 */
+                    position:relative;   /* 设置为参照物 */
+                    /* 设置线框 */
+                    box-sizing:border-box;
+                    border:1px solid #f5f5f5;
+                    >.DropDownBox1{  /*  “请登录”li的下拉框盒子 */
+                        position:absolute;
+                        top: 29px;
+                        left:-1px;
+                        width: 232px;
+                        padding:10px 0;
+                        box-sizing:border-box;
+                        border:1px solid #d4d4d4;
+                        background:#f5fafe;
+                        color:#333;
+                        display: flex;
+                        flex-direction:column;  /* 弹性盒主轴改为从上到下 */
+                        align-items:center;
+                        >.shelter-line{   /* 下拉框上方border的的遮挡线*/
+                            display: inline-block;
+                            width: 69px;
+                            height: 1px;
+                            background:#f5fafe ;
+                            position:absolute;
+                            top:-1px;
+                            left:0px;
+                        }
+                        >h3{  
+                            font-size:14px;
+                            margin-bottom:20px;
+                        }
+                        >a{
+                            width: 160px;
+                            height: 36px;
+                            background: #3A5E95;
+                            margin-bottom:5px;
+                            color:#fff;
+                            display:flex;  
+                            flex-direction:column;  /* 弹性盒主轴改为从上到下 */
+                            justify-content:center; 
+                            align-items:center;
+                            >p:first-child{
+                                font-size: 14px;
+                                padding-bottom:2px;
+                            }
+                        }
+                        >a:hover{    /* 超链接盒子划上变色、添加下划线 */
+                            color:@fontColor;
+                            text-decoration:underline;
+                        }
+                        >.p1{  /* “产品多交易快服务好费率省”的文本 */
+                            font-size: 12px;
+                            line-height: 30px;
+                            >span{  /* 突出文本 */
+                                font-size: 14px;
+                                font-weight:600;
+                                color:@fontColor;
+                            }
+                        }
+                        >.p2{  /* “客服热线”的文本 */
+                            font-size: 12px;
+                            color:gray;
+                            >span:last-child{  /* “客服热线”电话号码的文本 */
+                                font-family:arial;
+                            }
+                        }
+                    }
+                } 
+                >.arrowNav_li.arrowNav_add{     /* 鼠标移入带箭头的li时增添的样式（使用交集） */
+                    border-color: #d4d4d4 #d4d4d4 #f5fafe #d4d4d4;  /* 设置只显示上右左三条线框 */
+                    background:#f5fafe;
+                }
+                >.arrowNav_li:hover a>span,
+                >.arrowNav_li:hover .icon-arrowNav::before{   /* 当划上带箭头icon的li盒子a标签文本和icon变色 */
+                    color:@fontColor;
+                }
+                
+            }
+        }
+
+        /* 顶部导航区域右侧 */
+        >.right{  /* 导航栏右侧 */
+            height:100%;
+            float:right;     /* 右浮动，使盒子位于右侧 */
+            >ul{   
+                height:100%;
+                display:flex;   /* 设置浮动，块级元素li同行排列 */
+                align-items:center;  
+                >li{   
+                    height:100%;
+                    display:flex;   
+                    align-items:center;
+                    >.vertical-line{    /* li的竖线 */
+                        position:absolute;
+                        left:-4px;
+                        font-size: 10px;
+                        color:#777;
+                    }
+                    >a{
+                        padding:0 7px;
+                        color:#666;
+                        cursor: pointer;
+                        >.icon-logo{  //“东方财富网”旁边的logo图
+                            display: inline-block;
+                            height: 16px;
+                            width: 16px;
+                            background-image: url('../../image/sprites.png');  //引入精灵图做背景图
+                            background-position:0 -101px;   //精灵图进行定位
+                        }
+                        >span:hover{  /* 当划上用于li的a标签（不含icon图标）的文本后文本添加下划线 */
+                            text-decoration: underline;
+                        }
+                        >i,>span{  /* a标签中的文本和icon图标 */
+                            /* 设置垂直居中对齐 */
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    }
+                    >a:hover{   /* 当划上用于li的a标签（包含icon图标）后文本变色 */
+                        color:@fontColor;
+                    }
+                    >.alone-color{  /* 给用于基金交易的a标签设置单独的字体颜色 */
+                        color:@fontColor;
+                    }
+                }
+                >.arrowNav_li{  /* 带箭头的li盒子 */
+                    position:relative;   /* 设置为参照物 */
+                    /* 设置线框 */
+                    box-sizing:border-box;
+                    border:1px solid #f5f5f5;
+                    >.DropDownBox2,>.DropDownBox3{  /*  “基金交易”、“产品交易”li的两个下拉框盒子 */
+                        width: 82px;
+                        box-sizing:border-box;
+                        border:1px solid #d4d4d4;
+                        border-top-color:#f5fafe;
+                        background:#f5fafe;
+                        position:absolute;
+                        top:29px;
+                        left:-1px;
+                    }
+                    >.DropDownBox2>ul>li>a,
+                    >.DropDownBox3>ul>li>a{
+                        padding:0 7px;
+                        font-size:12px;
+                        color:#333;
+                        line-height: 30px;
+                    }
+                    >.DropDownBox2>ul>li>a:hover,
+                    >.DropDownBox3>ul>li>a:hover{ /* 划上a标签文本变色、添加下划线 */
+                        color:@fontColor;
+                        text-decoration:underline;
+                    }
+                    >.DropDownBox4{    /*  “网站导航”li的两个下拉框盒子 */
+                        width: 640px;
+                        padding:10px 0;
+                        box-sizing:border-box;
+                        border:1px solid #d4d4d4;
+                        background:#f5fafe;
+                        position:absolute;
+                        top:29px;
+                        right:-1px;
+                        display:flex;
+                        justify-content:space-around;
+                        >.shelter-line{  /* 下拉框上方border的的遮挡线 */
+                            display: inline-block;
+                            width: 100px;
+                            height: 1px;
+                            background:#f5fafe ;
+                            position:absolute;
+                            top:-1px;
+                            right:0px;
+                        }
+                        >.tableBox{  /* 单独装表格的盒子 */
+                            position:relative;  /* 设置参照物 */
+                            >.vertical-line{  /* 表格之间的竖直分割线 */
+                                width: 1px;
+                                height: 135px;
+                                background:#d4d4d4;
+                                position:absolute;
+                                right:-26px;
+                                top:10px;
+                            }
+                        }
+                        table{
+                            >caption{  /* 表格的标题 */
+                                font-size:14px;
+                                font-weight:700;
+                                line-height: 30px;
+                                padding-left:7px;
+                                float:left;   /* 移至左边 */
+                                >a{  /* 表格的标题的“手机买基金”a标签 */
+                                    font-size:12px;
+                                    font-weight: normal;
+                                    color:@fontColor;
+                                    /* 设置定位脱离文档流 */
+                                    position:absolute;
+                                    right:-16px;
+                                    font-size:0;  /* 消除子行内元素间隙 */
+                                    >span{  /* “手机买基金”文本的样式 */
+                                        font-size: 12px;  
+                                        vertical-align:middle;  /* 设置同级盒子垂直居中对齐 */
+                                    }
+                                    >.icon-phoneNav:before{  /* “手机买基金”icon的样式 */
+                                        font-size: 14px;
+                                        color:@fontColor;
+                                        vertical-align:middle;  /* 设置同级盒子垂直居中对齐 */
+                                    }
+                                }
+                                >a:hover span{ /* 划上“手机买基金”文本的样式 */
+                                    text-decoration:underline;
+                                }
+                                >span{  /* “登录|开户”盒子 */
+                                    font-weight: normal;
+                                    /* 设置定位脱离文档流 */
+                                    position:absolute;
+                                    right:-10px;
+                                    font-size:0px;   /* 消除子行内元素间隙 */
+                                    >a{  /* “登录|开户”盒子的a标签 */
+                                        font-size:12px;
+                                        color:@fontColor;
+                                    }
+                                    >a:hover{  /* “登录|开户”盒子的a标签 */
+                                        text-decoration:underline;
+                                    }
+                                    >span{  /* 竖线 */
+                                        font-size:12px;
+                                        color:@fontColor;
+                                        padding:0 3px;
+                                    }
+                                }
+                            }
+                            >tbody{
+                                >tr{
+                                    a{  /* 表格中单元格的a标签 */
+                                        padding:0 7px;
+                                        line-height:30px;
+                                    }
+                                    a:hover{  /* 划上表格中单元格的a标签 */
+                                        color:@fontColor;
+                                        text-decoration:underline;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                >.arrowNav_li.arrowNav_add{     /* 鼠标移入带箭头的li时增添的样式（使用交集） */
+                    border-color: #d4d4d4 #d4d4d4 #f5fafe #d4d4d4;
+                    background:#f5fafe;
+                }
+                >.arrowNav_li:hover a>span,
+                >.arrowNav_li:hover .icon-arrowNav::before{   /* 当划上带箭头icon的li盒子a标签文本和icon变色 */
+                    color:@fontColor;
+                } 
+            }
+        }
+    }
+}
+
+
+
+
+
