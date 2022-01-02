@@ -12,11 +12,16 @@ var DropDownBox1 = document.querySelector('nav>#navBox>.left>ul>li>.DropDownBox1
 var DropDownBox2 = document.querySelector('nav>#navBox>.right>ul>li>.DropDownBox2');  //导航栏右侧“基金交易”的li盒子的下拉框
 var DropDownBox3 = document.querySelector('nav>#navBox>.right>ul>li>.DropDownBox3');  //导航栏右侧“产品导购”的li盒子的下拉框
 var DropDownBox4 = document.querySelector('nav>#navBox>.right>ul>li>.DropDownBox4');  //导航栏右侧“网站导航”的li盒子的下拉框
+var shelter_line = document.querySelectorAll('.shelter-line');
+
 DropDownBox1.style.display='none';   //先把下拉框设置隐藏
 DropDownBox2.style.display='none';   //先把下拉框设置隐藏
 DropDownBox3.style.display='none';   //先把下拉框设置隐藏
 DropDownBox4.style.display='none';   //先把下拉框设置隐藏
-
+//先把下拉框遮挡线设置隐藏
+for(var i=0;i<shelter_line.length;i++){
+    shelter_line[i].style.display='none';
+}
 //给带箭头的li盒子循环添加事件
 for(var i=0;i<arrowNav_lis.length;i++){
     //添加鼠标划上显示事件
@@ -33,10 +38,13 @@ for(var i=0;i<arrowNav_lis.length;i++){
 //添加下拉框显示的事件
 arrowNav_lis[0].addEventListener('mouseenter',function(){
     DropDownBox1.style.display='flex';
+    shelter_line[0].style.display='inline-block';  //显示遮挡线
+    
 },false);
 //添加下拉框隐藏的事件
 arrowNav_lis[0].addEventListener('mouseleave',function(){
     DropDownBox1.style.display='none';
+    shelter_line[0].style.display='none';  //隐藏遮挡线
 },false);
 
 //导航栏右侧“基金交易”的li盒子添加事件
@@ -63,9 +71,11 @@ arrowNav_lis[2].addEventListener('mouseleave',function(){
 //添加下拉框显示的事件
 arrowNav_lis[3].addEventListener('mouseenter',function(){
     DropDownBox4.style.display='flex';
+    shelter_line[1].style.display='inline-block';  //显示遮挡线
 },false);
 //添加下拉框隐藏的事件
 arrowNav_lis[3].addEventListener('mouseleave',function(){
     DropDownBox4.style.display='none';
+    shelter_line[1].style.display='none';  //隐藏遮挡线
 },false);
 

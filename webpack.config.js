@@ -34,7 +34,7 @@ module.exports = {
             },
             //设置打包图片文件
             {
-                test:/\.(gif|jpg|png|woff|svg|eot|ttf)$/,  //设置打包的文件类型，多种类型用括号括起，竖线隔开。 */
+                test:/\.(jpg|png|woff|svg|eot|ttf|gif)$/,  //设置打包的文件类型，多种类型用括号括起，竖线隔开。 */
                 type:'asset',      //使用到的模块 
                 parser:{
                     dataUrlCondition:{ maxSize: 10 *1024 }  //指定图片转base64条件 
@@ -56,10 +56,12 @@ module.exports = {
     plugins:[  //配置插件
         new HtmlWebpackPlugin({   //打包html文件
             template:__dirname+'/src/index.html', //要打包的html文件的路径
-            minify:{   //对html文件进行压缩处理
+            /* minify:{   //对html文件进行压缩处理
                 collapseWhitespace:true,   //移除空格
                 removeComments:true   //移除注释
-            }
+            }, */
+            favicon:__dirname+'/src/static/image/favicon.ico', //打包favicon.ico图标
+
         }),
         new MiniCssExtractPlugin({   //单独打包css文件
             filename:'css/main.css'   //设置打包好的css文件存放的目录和文件名

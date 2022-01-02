@@ -39,6 +39,7 @@ nav{
                         color:#777;
                     }
                     >a{    /* li的a标签 */
+                        font-size:12px;
                         padding:0 7px;
                         color:#666;
                         cursor: pointer;
@@ -63,6 +64,16 @@ nav{
                     /* 设置线框 */
                     box-sizing:border-box;
                     border:1px solid #f5f5f5;
+                    >.shelter-line{   /* 下拉框上方border的的遮挡线*/
+                        display: inline-block;
+                        width: 100%;
+                        height: 1px;
+                        background:#f5fafe ;
+                        position:absolute;
+                        z-index:100;  //设置层级，才能遮挡其他盒子
+                        bottom:-2px;
+                        left:0px;
+                    }
                     >.DropDownBox1{  /*  “请登录”li的下拉框盒子 */
                         position:absolute;
                         top: 29px;
@@ -76,15 +87,6 @@ nav{
                         display: flex;
                         flex-direction:column;  /* 弹性盒主轴改为从上到下 */
                         align-items:center;
-                        >.shelter-line{   /* 下拉框上方border的的遮挡线*/
-                            display: inline-block;
-                            width: 69px;
-                            height: 1px;
-                            background:#f5fafe ;
-                            position:absolute;
-                            top:-1px;
-                            left:0px;
-                        }
                         >h3{  
                             font-size:14px;
                             margin-bottom:20px;
@@ -127,14 +129,13 @@ nav{
                     }
                 } 
                 >.arrowNav_li.arrowNav_add{     /* 鼠标移入带箭头的li时增添的样式（使用交集） */
-                    border-color: #d4d4d4 #d4d4d4 #f5fafe #d4d4d4;  /* 设置只显示上右左三条线框 */
+                    border-color: #d4d4d4 #d4d4d4 transparent #d4d4d4;  /* 设置只显示上右左三条线框 */
                     background:#f5fafe;
                 }
                 >.arrowNav_li:hover a>span,
                 >.arrowNav_li:hover .icon-arrowNav::before{   /* 当划上带箭头icon的li盒子a标签文本和icon变色 */
                     color:@fontColor;
                 }
-                
             }
         }
 
@@ -160,12 +161,12 @@ nav{
                         padding:0 7px;
                         color:#666;
                         cursor: pointer;
-                        >.icon-logo{  //“东方财富网”旁边的logo图
+                        >.icon-logo{  /* “东方财富网”旁边的logo图 */
                             display: inline-block;
                             height: 16px;
                             width: 16px;
-                            background-image: url('../../image/sprites.png');  //引入精灵图做背景图
-                            background-position:0 -101px;   //精灵图进行定位
+                            background-image: url('../../image/sprites.png');  /* 引入精灵图做背景图 */
+                            background-position:0 -101px;   /* 精灵图进行定位 */
                         }
                         >span:hover{  /* 当划上用于li的a标签（不含icon图标）的文本后文本添加下划线 */
                             text-decoration: underline;
@@ -188,11 +189,21 @@ nav{
                     /* 设置线框 */
                     box-sizing:border-box;
                     border:1px solid #f5f5f5;
+                    >.shelter-line{  /* 下拉框上方border的的遮挡线 */
+                        display: inline-block;
+                        width: 100%;
+                        height: 1px;
+                        background:#f5fafe;
+                        position:absolute;
+                        z-index:100;  //设置层级，才能遮挡其他盒子
+                        bottom:-2px;
+                        right:0px;
+                    }
                     >.DropDownBox2,>.DropDownBox3{  /*  “基金交易”、“产品交易”li的两个下拉框盒子 */
                         width: 82px;
                         box-sizing:border-box;
-                        border:1px solid #d4d4d4;
-                        border-top-color:#f5fafe;
+                        border:1px solid #d4d4d4; 
+                        border-top:0;   /* 去掉上线框 */
                         background:#f5fafe;
                         position:absolute;
                         top:29px;
@@ -221,15 +232,6 @@ nav{
                         right:-1px;
                         display:flex;
                         justify-content:space-around;
-                        >.shelter-line{  /* 下拉框上方border的的遮挡线 */
-                            display: inline-block;
-                            width: 100px;
-                            height: 1px;
-                            background:#f5fafe ;
-                            position:absolute;
-                            top:-1px;
-                            right:0px;
-                        }
                         >.tableBox{  /* 单独装表格的盒子 */
                             position:relative;  /* 设置参照物 */
                             >.vertical-line{  /* 表格之间的竖直分割线 */
@@ -305,7 +307,7 @@ nav{
                     }
                 }
                 >.arrowNav_li.arrowNav_add{     /* 鼠标移入带箭头的li时增添的样式（使用交集） */
-                    border-color: #d4d4d4 #d4d4d4 #f5fafe #d4d4d4;
+                    border-color: #d4d4d4 #d4d4d4 transparent #d4d4d4;   /* 设置只显示上右左三条线框 */
                     background:#f5fafe;
                 }
                 >.arrowNav_li:hover a>span,
@@ -315,6 +317,12 @@ nav{
             }
         }
     }
+}
+.adv-image-1{
+    width:@pageWidth ;
+    height: 60px;
+    background-image:url('../../image/adv-image-1.gif');
+    margin:0 auto;
 }
 
 
